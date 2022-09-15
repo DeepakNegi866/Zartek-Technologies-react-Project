@@ -1,0 +1,48 @@
+/* .btn{
+  background-color: yellow;
+  color: white;
+}
+.btn:hover{
+background-color: yellow;
+font-weight: 500;
+color: black;
+} */
+.form{
+  margin-left: 50px;
+}
+.input{
+  width: 250px;
+  height: 20px;
+}
+
+.card{
+  float: left;
+  margin-left: 30px;
+  margin-top: 10px;
+ 
+}
+.container{
+  height: 100%;
+  width: 100%;
+  
+}
+.container .card-img-top
+{
+  height: 144px;
+  width: 238px;
+}
+.container .card-body{
+  height: 144px;
+  width: 238px;
+}
+
+button{
+  background-color: cornflowerblue;
+  color: white;
+  font-weight: 600px;
+}
+button:hover{
+  background-color: yellow;
+  color:black;
+}
+
