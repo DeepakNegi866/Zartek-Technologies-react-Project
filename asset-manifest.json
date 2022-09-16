@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Zartek-Technologies-react-Project/static/css/main.2a9f63f0.css",
-    "main.js": "/Zartek-Technologies-react-Project/static/js/main.cc09d497.js",
+    "main.js": "/Zartek-Technologies-react-Project/static/js/main.88e48962.js",
     "index.html": "/Zartek-Technologies-react-Project/index.html",
     "main.2a9f63f0.css.map": "/Zartek-Technologies-react-Project/static/css/main.2a9f63f0.css.map",
-    "main.cc09d497.js.map": "/Zartek-Technologies-react-Project/static/js/main.cc09d497.js.map"
+    "main.88e48962.js.map": "/Zartek-Technologies-react-Project/static/js/main.88e48962.js.map"
   },
   "entrypoints": [
     "static/css/main.2a9f63f0.css",
-    "static/js/main.cc09d497.js"
+    "static/js/main.88e48962.js"
   ]
 }
