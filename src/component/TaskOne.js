@@ -1,68 +1,39 @@
 import React from 'react'
 import {useState,useEffect} from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import { Pagination } from '@mui/material';
 
 
 const TaskOne=()=> {
 
   const [item,setItem]=useState([]);
-  const [start,setStart]=useState(2);
-  const [hasMore,setHasMore]=useState(true);
+  const [page,setPage]=useState(0);
+ 
 
   const getFetch=async()=>{
-    const getData=await fetch(`https://jsonplaceholder.typicode.com/users?_start=1&_limit=10`);
+    const getData=await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=12`);
     const res=await getData.json();
     setItem(res);
-    console.log(JSON.stringify(res));
   }
 
   useEffect(()=>{
      getFetch();
-  },[])
-
-  const getMoreFetch=async()=>{
-    const getMoreData=await fetch(`https://jsonplaceholder.typicode.com/users?_start=${start}&_limit=10`);
-    const result=await getMoreData.json();
-    return result;
-  }
-
-  const fetchData=async()=>{
-    const jsonData=await getMoreFetch();
-    setItem([...item,...jsonData]);
-    if(jsonData.length===0 || jsonData.length<10);
-    {
-      setHasMore(false);
-    }
-      setStart(start+1);
-    }
-       
-  
+  },[page])
 
   return (
     <>
-    <InfiniteScroll
-  dataLength={item.length} //This is important field to render the next data
-  next={fetchData}
-  hasMore={{hasMore}}
-  endMessage={
-    <p style={{ textAlign: 'center' }}>
-      <b>Yay! You have seen it all</b>
-    </p>
-  }
->
-<div className='container-fluid  main-div col-10'>
-<h2 className='text'>Pagination</h2>
+    <div className="bg-primary text-dark bg-opacity-10">
+    <div className='container-fluid row d-flex justify-content-center bg-primary text-dark bg-opacity-25'>
+      <h3 className='text text-center mt-3' style={{color:"darkgreen"}}>Pagination</h3>
 {
   item.map((current)=>{
    return(
     <>
-    <div className="card col-10" style={{width: "20rem", height:"220px", margin:"10px"}}>
+    <div className="card col-10" style={{width: "22rem", height:"500px", margin:"10px"}}>
   <div className="card-body" key={current.id}>
-    <h5 className="card-title">Card title</h5>
-    <h5>Id:{current.id}</h5>
-    <h5>Name:{current.name}</h5>
-    <h5>Username:{current.username}</h5>
-    <h5>Email:{current.email}</h5>
+    <h5 className="card-title text text-center" style={{color:"darkgreen"}}>Card</h5>
+    <h5><h5 style={{color:"darkgreen", fontweight:"500"}}>Id:</h5>{current.id}</h5>
+    <h5><h5 style={{color:"darkgreen", fontweight:"500"}}>Title:</h5>{current.title}</h5>
+    <h5><h5 style={{color:"darkgreen", fontweight:"500"}}>Body:</h5>{current.body}</h5>
   </div>
   </div>
     </>
@@ -70,8 +41,17 @@ const TaskOne=()=> {
   })
 } 
 </div>
-</InfiniteScroll>
-    </>
+<div className='d-flex justify-content-center mb-5 mt-5'>
+<Pagination
+  count={9}
+  variant="outlined"
+  color="primary"
+  showFirstButton
+  showLastButton
+  onChange={(e,value)=>setPage(value)}/>
+</div>
+</div>
+</>
   )
 }
 
